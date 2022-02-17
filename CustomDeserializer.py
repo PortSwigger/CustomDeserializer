@@ -118,7 +118,9 @@ class BurpExtender(IBurpExtender, IHttpListener, IMessageEditorTabFactory, ITab)
         tabPane = JTabbedPane(JTabbedPane.TOP)
         CreditsText = "<html># Burp Custom Deserializer<br/># Copyright (c) 2016, Marco Tinari<br/>#<br/># This program is free software: you can redistribute it and/or modify<br/># it under the terms of the GNU General Public License as published by<br/># the Free Software Foundation, either version 3 of the License, or<br/># (at your option) any later version.<br/>#<br/># This program is distributed in the hope that it will be useful,<br/># but WITHOUT ANY WARRANTY; without even the implied warranty of<br/># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the<br/># GNU General Public License for more details.<br/>#<br/># You should have received a copy of the GNU General Public License<br/># along with this program.  If not, see <http://www.gnu.org/licenses/>.)<br/></html>"
         label1 = JLabel("<html>Usage:<br>1 - Select the desired encoding functions<br>2 - Enter the name of the parameter in the input field below and press the Apply button!</html>")
+        label1.putClientProperty("html.disable", None)
         label2 = JLabel(CreditsText)
+        label2.putClientProperty("html.disable", None)
         panel1 = JPanel()
         #set layout
         panel1.setLayout(GridLayout(11,1))
@@ -144,7 +146,9 @@ class BurpExtender(IBurpExtender, IHttpListener, IMessageEditorTabFactory, ITab)
         self.URLEnabled = JCheckBox("URL encode")
         self.ASCII2HexEnabled = JCheckBox("ASCII to Hex")
         self.ScannerEnabled = JCheckBox("<html>Enable serialization in Burp Scanner<br>Usage:<br>1.Place unencoded values inside intruder request and define the placeholder positions<br>2.rightclick->Actively scan defined insertion points)</html>")
+        self.ScannerEnabled.putClientProperty("html.disable", None)
         self.IntruderEnabled = JCheckBox("<html>Enable serialization in Burp Intruder<br>Usage:<br>1.Place unencoded values inside intruder request and define the placeholder positions<br>2.Start the attack</html>")
+        self.IntruderEnabled.putClientProperty("html.disable", None)
         self.parameterName = JTextField("Parameter name goes here...",60)
         
         #set the tooltips
